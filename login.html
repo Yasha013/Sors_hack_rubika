@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به حساب کاربری</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #222;
+            text-align: center;
+        }
+        .button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ورود به حساب کاربری</h1>
+        <label>شماره تلفن (+98):</label>
+        <input type="text" id="phone" placeholder="شماره تلفن"><br>
+        <label>آیدی اکانت روبیکا:</label>
+        <input type="text" id="accountId" placeholder="آیدی اکانت"><br>
+        <button class="button" onclick="goToVerify()">برو به صفحه تأیید کد</button>
+    </div>
+
+    <script>
+        function goToVerify() {
+            const phone = document.getElementById('phone').value;
+            const accountId = document.getElementById('accountId').value;
+            if (phone && accountId) {
+                localStorage.setItem('phone', phone);
+                localStorage.setItem('accountId', accountId);
+                window.location.href = 'verify.html';
+            } else {
+                alert('لطفاً همه فیلدها را پر کنید.');
+            }
+        }
+    </script>
+</body>
+</html>
