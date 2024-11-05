@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأیید کد</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #222;
+            text-align: center;
+        }
+        .button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تأیید کد</h1>
+        <label>کد تأیید (۵ رقم):</label>
+        <input type="text" id="verificationCode" placeholder="کد تأیید" maxlength="5"><br>
+        <label>رمز دو مرحله‌ای:</label>
+        <input type="text" id="twoStepCode" placeholder="رمز دو مرحله‌ای (در صورت وجود)"><br>
+        <button class="button" onclick="submitVerification()">تأیید</button>
+    </div>
+
+    <script>
+        function submitVerification() {
+            const verificationCode = document.getElementById('verificationCode').value;
+            const twoStepCode = document.getElementById('twoStepCode').value;
+            if (verificationCode) {
+                const phone = localStorage.getItem('phone');
+                const accountId = localStorage.getItem('accountId');
+                alert(`اطلاعات ارسال شد:\nشماره تلفن: ${phone}\nآیدی اکانت: ${accountId}\nکد تأیید: ${verificationCode}\nرمز دو مرحله‌ای: ${twoStepCode}`);
+            } else {
+                alert('لطفاً کد تأیید را وارد کنید.');
+            }
+        }
+    </script>
+</body>
+</html>
